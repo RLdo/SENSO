@@ -263,7 +263,7 @@ $$ Y_{ijk} = \mu + \alpha_i + \gamma_j + \lambda_k + \epsilon_{ijk} $$
 
 Où :
 
-Y<sub>ijk</sub> : note attribuée à un descripteur μ : moyenne globale α<sub>i</sub> : effet de la variété γ<sub>j</sub> : effet du juge λ<sub>k</sub> : effet de la session ε<sub>ijk</sub> : erreur aléatoire (sous contrainte : ∑α<sub>i</sub> = 0)
+Y<sub>ijk</sub> : note attribuée à un descripteur μ : moyenne globale α<sub>i</sub> : effet de la variété i  γ<sub>j</sub> : effet du juge j  λ<sub>k</sub> : effet de la session k  ε<sub>ijk</sub> : erreur aléatoire (sous contrainte : ∑α<sub>i</sub> = 0)
 
 Les variétés étant précisément définies et d’intérêt principal, elles sont considérées comme un effet fixe.
 L’effet du juge et de la session sont considérés comme aléatoire car nous souhaitons généraliser nos conclusions à d’autres panels de juges similaires.
@@ -605,7 +605,7 @@ res.jar$penalty2
 Les coefficients issus du modèle indiquent donc combien de points en appréciation globale sont perdus lorsqu’un défaut sensoriel est perçu (trop / pas assez). 
 Pour chaque modalité extrême testée, l’hypothèse nulle est H₀ : β = 0 (le défaut n’a aucun effet sur la note de liking). Une p-value inférieure à 0,05 permet de rejeter cette hypothèse et conclure à un impact significatif.
 
-#INTERPRETATION
+# INTERPRETATION
 
 
 ```{r, echo=FALSE}
@@ -666,7 +666,7 @@ tabc2 <-head(hedo.cocktail)
 Voici une rapide visualisation de nos jeux de données : 
 
 
- # CHANGER STYLE TABLEAU
+
 senso.cocktail : un data frame de 16 lignes et 13 colonnes : chaque cocktail a été évalué par 12 panélistes selon 13 descripteurs sensoriels ;
 
 ```{r, echo=FALSE}
@@ -675,9 +675,8 @@ kable(tabc2 , digits = 2, align = "c", caption = "6 premières lignes du jeu de 
                 bootstrap_options = c("striped", "hover"),
                 position = "center",
                 font_size = 14) %>%
-  row_spec(0, bold = T, background = "#ff7f00") %>%
-  row_spec(1:nrow(tabc2), background="#FFF0F5")%>%
-  column_spec(2, bold = T, color="#df6d14")
+  row_spec(0, bold = T, background = "#3eecac") %>%
+  row_spec(1:nrow(tabc2), background="#cca3ff")
 ```
 
 hedo.cocktail : un data frame de 16 lignes et 100 colonnes : chaque cocktail a été évalué sur une échelle structurée de 0 à 10 par 100 consommateurs, en fonction de leur déplaisir (0) ou plaisir (10).
@@ -700,11 +699,14 @@ kable(tabc3 , digits = 2, align = "c", caption = "6 premières lignes du jeu de 
 Afin de représenter les produits dans un espace sensoriel réduit, nous appliquons une Analyse en Composantes Principales (ACP) sur le tableau des profils sensoriels. 
 Les notes des descripteurs sont préalablement ajustées selon le modèle suivant :
 
-# ÉCRIRE MODELE
+::: box
+$$ Y_{ijk} = \mu + \alpha_i + \gamma_j + \epsilon_{ijk} $$
+:::
 
- : effet fixe du produit
+Où :
 
- : effet juge
+Y<sub>ijk</sub> : note attribuée à un descripteur μ : moyenne globale α<sub>i</sub> : effet fixe du produit i  γ<sub>j</sub> : effet aléatoire du juge j  ε<sub>ijk</sub> : erreur aléatoire (sous contrainte : ∑α<sub>i</sub> = 0)
+
 
 Les moyennes ajustées par produit sont extraites et servent de base pour l’ACP. 
 Cette méthode permet de projeter les produits dans un repère de dimension réduite, tout en conservant un maximum de variance sensorielle. 
@@ -726,16 +728,37 @@ res.acp <- PCA(senso.cocktail)
 Nous souhaitons ensuite relier la position des produits dans la représentation sensorielle à l’appréciation des consommateurs. 
 Pour cela, un modèle de régression linéaire est ajusté pour chaque consommateurs, prenant en entrée les coordonnées ACP des produits qu’il a notés :
 
-# MODELE
+<div class='box'>$$
+Y = \\beta_0 + \\beta_1 \\cdot x + \\beta_2 \\cdot y + \\varepsilon
+$$</div>
 
-Chaque juge naif est ainsi modélisé par un plan de régression qui lui est propre, permettant d’estimer sa note pour n’importe quelle position dans l’espace sensoriel. 
+avec :  
+- \\( Y_{ij} \\) : **note de liking** attribuée par le consommateur *i* au produit *j* ;  
+- \\( \\beta_{0i} \\) : niveau de satisfaction moyen ;  
+- \\( x_{1j} \\) : **coordonnée du produit *j* sur la dimension 1** de l'ACP ;  
+- \\( x_{2j} \\) : **coordonnée du produit *j* sur la dimension 2** de l'ACP ;  
+- \\( \\beta_{1i}, \\beta_{2i} \\) : **effets directionnels** des préférences du consommateur *i* dans l’espace sensoriel ;  
+- \\( \\varepsilon_{ij} \\) : erreur aléatoire
+
+
+Chaque consommateur est ainsi modélisé par un plan de régression qui lui est propre, permettant d’estimer sa note pour n’importe quelle position dans l’espace sensoriel. 
 Ce choix repose sur l’hypothèse émise que deux produits proches dans l’espace sensoriel devraient être appréciés de manière similaire.
 
 Selon les hypothèses psychophysiques retenues, une version quadratique peut être testée (pour tenir compte d’effets de saturation), si on estime que liking est en constante croissance, notre modèle ne prendre pas en compte les effets quadratique, à contrario, si nous estiment qu'à partir d'un certain seuil, sur un attribut sensoriel, le liking diminuerai, il faut inclure des effets quadratiques dans le modèle. 
 
 Voici le modèle où les effets quadratiques sont pris en compte: 
 
-# MODELE
+<div class='box'>$$
+Y = \\beta_0 + \\beta_1 \\cdot x + \\beta_2 \\cdot y + \\beta_3 \\cdot x^2 + \\beta_4 \\cdot y^2 + \\varepsilon
+$$</div>
+
+avec :  
+- \( Y \) : note de liking prédite pour une position donnée dans l’espace sensoriel (x, y) ;  
+- \( x \), \( y \) : coordonnées du point dans le plan ACP (Dim1, Dim2) ;  
+- \( \beta_0 \) : constante (niveau moyen de liking) ;  
+- \( \beta_1 \), \( \beta_2 \) : effets directionnels linéaires ;  
+- \( \beta_3 \), \( \beta_4 \) : effets de courbure (prise en compte d'un seuil de saturation) ;  
+- \( \varepsilon \) : erreur aléatoire.
 
 
 
