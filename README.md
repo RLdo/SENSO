@@ -222,11 +222,44 @@ On obtient également plusieurs objets, parmi lesquels  resT qui donne la carte 
 
 # INTERPRETATION POUR LES FRAISES
 
+Le résultat de la fonction decat est une liste contenant plusieurs objets. 
+Le premier objet analysé est le resT, les résultats du T test. Pour chaque variété de fraises, les descripteurs significatifs sont affichés. 
+La colonnes coeff donne le coefficient d’écart à la moyenne générale (alpha). C'est-à- dire que pour cette variété, la moyenne ajustée de l’attribut est égale à la moyenne générale + le coefficient. Si il est positif c’est donc que la fraise a des valeurs plus élevées que la moyenne pour ce descripteur et si il est négatif des valeurs plus basses que la moyenne. 
+La colonne p value indique si le coefficient est significatif. La fonction decat affiche uniquement les descripteurs significatifs pour chaque fraise. 
+
+Si on prend la fraise A comme exemple, on peut dire qu’elle est plus rouge et plus ferme que les autres fraises. En effet pour ces deux descripteurs elle a des coefficient d’écart à la moyenne général positif. Par contre elle est moins grande, moins fondante et moins juteuse que les autres. Car ces coefficient sont négatifs. 
+
+Le deuxième objet que l’on regarde est le tableau des moyennes ajusté. On peut le retrouver dans l’objet adjmean, mais la fonction affiche directement ce tableau dans sa sortie. 
+La moyenne ajustée = la moyenne générale + le coefficient d’écart à la moyenne générale. 
+
+
+Le tableau prend en ligne les variétés de fraises et en colonnes les différents descripteurs. Dans les cases, il indique la moyenne ajustée que prend la fraise pour ce descripteur. C'est-à- dire la note moyenne que la fraise reçoit pour le descripteur en question. 
+
+Les cases en rouge signifie que la moyenne ajustée est significativement plus petite que la moyenne globale. Et les cases en bleu que la moyenne ajustée est significativement plus grande que la moyenne globale. 
+
+Les fraises sont également rangées dans un ordre précis. Si deux fraises sont proches dans le tableau c’est qu'elles prennent des valeurs similaires sur les différents descripteurs. 
+
+Sur le tableau on voit deux groupes de fraises. La A et la D qui ont des fortes valeurs par rapport à la moyenne pour couleur et fermeté mais des plus faibles pour la taille, le juteux et le fondant. Les fraise B et C qui prennent des fortes valeurs là où le A et D n’en prennent pas. 
+
+On peut se poser la question de qu’est ce qu’il se passe si on change le modèle utilisé dans la fonction decat. Les données étant équilibrées grâce à un plan d’expérience, les estimateurs de la moyenne ne vont pas changer. Ce qui va changer c’est la significativité de l’effet produit sur les descripteurs, c'est-à- dire la façon dont les cases s'allument en bleu ou en rouge. 
+
+
 L’analyse unidimensionnelle permet d’identifier les descripteurs sensoriels qui différencient le plus les variétés entre elles. Ces descripteurs peuvent devenir des leviers de communication ou de sélection : une variété particulièrement fondante ou riche en arôme de fraise des bois peut être positionnée comme « gourmande », tandis qu’une variété perçue comme plus ferme ou plus acide conviendra peut-être plus à la transformation.
 
 
 
 # EXPLIQUER INTERRACTION 
+Une fois avoir analysé nos données sensorielles, on peut se questionner sur la performance de nos juges. Pour celà il faut se pencher sur les intéractions. Une interaction c’est quand l’influence d’une variable explicative sur la variable réponses dépend d’une autre variable explicative. 
+
+Dans notre cas d’étude sensoriel il y a 3 intéractions qui existent : 
+Juge : session 
+Session : produit 
+Juge : produit 
+
+Sachant que l’on se questionne sur notre produit, il convient d’écarter l'interaction qui n'inclut pas le produit. Il faut donc se concentrer sur les intéractions Juge:Produit et Session:Produit. 
+
+L’interaction Session:Produit nous informe sur la répétabilité : est-ce que les produits ont été évalués de manière similaire d’une session à l’autre ?
+L’interaction Juge:Produit, quant à elle, concerne la reproductibilité : est-ce que les juges évaluent les produits de manière cohérente ? Autrement dit, obtiendrait-on des résultats comparables si l’on changeait de panel de juges ?
 
 
 ### Analyse multidimensionnelle (ACP)
@@ -240,6 +273,13 @@ Les deux premières composantes principales retenues pour la représentation gra
 
 
 # INTERPRETATION
+La première dimension explique 49.51% de la variabilité et la deuxième 33.57%. 
+
+Sur le graphique des individus on voit que les fraises sont assez séparées. La Fraise A est particulièrement éloignée de toutes les autres sur la première dimension. Sur la deuxième dimension les Fraise A et D sont presque au même niveau (d'où la proximité dans les tableau des moyennes ajustées présenté par decat). 
+
+Il faut utiliser le graphique des variables pour pouvoir interpréter la position des fraises. 
+Sur la première dimension plus une fraise est à gauche plus elle est rouge et ferme, ce qui correspond bien à la description de la fraise A faite précédemment. Plus une fraise est à droite sur la dimension 1 plus elle est grande, sucrée, juteuse, et fondante.  
+Plus une fraise est haute sur la dimension deux, plus elle a un arôme prononcé et un goût de fraise des bois. On peut donc dire que la Fraise C qui est en haut est une fraise très aromatique alors que la Fraise B est une fraise avec un profil aromatique plus faible. 
 
 
 
@@ -301,6 +341,11 @@ elispsefraise <- panellipse(fraise1, col.p = 3, col.j = 2, firstvar = 4, lastvar
 
 
 # INTERPRETATION
+Sur le graphique des individus, on voit qu’aucune des ellipses de confiance ne se chevauche. Celà veut dire que nos produits sont bien différenciable. 
+
+Sur le graphique, on observe que la variable taille est très stable, car les points qui l'entourent sont très rapprochés.
+ Les variables acide, ferme, couleur, juteux et fondant sont également stables, bien que les points qui les entourent soient un peu plus dispersés que pour taille.
+ En revanche, les variables fraise des bois et odeur sont les moins bien représentées, car les points qui les entourent sont très dispersés.
 
 
 L’analyse par bootstrap valide la robustesse des différences perçues. Si une variété est bien différenciée mais son ellipse de confiance est large ou chevauche celle d’un concurrent, cela signifie que cette différenciation est instable : un autre panel pourrait percevoir autrement. 
