@@ -652,7 +652,7 @@ Les juges experts évaluent chaque produit selon un ensemble descripteurs sensor
 
 ###  Exemple : 
 
-Dans notre exemple, nous utilisons les données cocktail du package SensoMineR. Le fichier senso.cocktail contient les profils sensoriels (16 produits × 13 descripteurs). Le fichier hedo.cocktail regroupe les notes hédoniques (16 produits évalués par 100 consommateurs).
+Dans notre exemple, nous utilisons les données cocktail du package SensoMineR. Le fichier senso.cocktail contient les profils sensoriels. Le fichier hedo.cocktail regroupe les notes hédoniques.
 
 
 ```{r, include=FALSE}
@@ -729,16 +729,16 @@ Nous souhaitons ensuite relier la position des produits dans la représentation 
 Pour cela, un modèle de régression linéaire est ajusté pour chaque consommateurs, prenant en entrée les coordonnées ACP des produits qu’il a notés :
 
 <div class='box'>$$
-Y = \\beta_0 + \\beta_1 \\cdot x + \\beta_2 \\cdot y + \\varepsilon
+Y = \beta_0 + \beta_1 \cdot x + \beta_2 \cdot y + \varepsilon
 $$</div>
 
 avec :  
-- \\( Y_{ij} \\) : **note de liking** attribuée par le consommateur *i* au produit *j* ;  
-- \\( \\beta_{0i} \\) : niveau de satisfaction moyen ;  
-- \\( x_{1j} \\) : **coordonnée du produit *j* sur la dimension 1** de l'ACP ;  
-- \\( x_{2j} \\) : **coordonnée du produit *j* sur la dimension 2** de l'ACP ;  
-- \\( \\beta_{1i}, \\beta_{2i} \\) : **effets directionnels** des préférences du consommateur *i* dans l’espace sensoriel ;  
-- \\( \\varepsilon_{ij} \\) : erreur aléatoire
+- \\( Y_{ij} \\) : note de liking attribuée par le consommateur i au produit j ;  <br>
+- \\( \\beta_{0i} \\) : niveau de satisfaction moyen ;  <br>
+- \\( x_{1j} \\) : coordonnée du produit j sur la dimension 1 de l'ACP ;  <br>
+- \\( x_{2j} \\) : coordonnée du produit j sur la dimension 2 de l'ACP ;  <br>
+- \\( \\beta_{1i}, \\beta_{2i} \\) : effets directionnels des préférences du consommateur i dans l’espace sensoriel ;  <br>
+- \\( \\varepsilon_{ij} \\) : erreur aléatoire<br>
 
 
 Chaque consommateur est ainsi modélisé par un plan de régression qui lui est propre, permettant d’estimer sa note pour n’importe quelle position dans l’espace sensoriel. 
@@ -749,16 +749,16 @@ Selon les hypothèses psychophysiques retenues, une version quadratique peut êt
 Voici le modèle où les effets quadratiques sont pris en compte: 
 
 <div class='box'>$$
-Y = \\beta_0 + \\beta_1 \\cdot x + \\beta_2 \\cdot y + \\beta_3 \\cdot x^2 + \\beta_4 \\cdot y^2 + \\varepsilon
+Y = \beta_0 + \beta_1 \cdot x + \beta_2 \cdot y + \beta_3 \cdot x^2 + \beta_4 \cdot y^2 + \varepsilon
 $$</div>
 
 avec :  
-- \( Y \) : note de liking prédite pour une position donnée dans l’espace sensoriel (x, y) ;  
-- \( x \), \( y \) : coordonnées du point dans le plan ACP (Dim1, Dim2) ;  
-- \( \beta_0 \) : constante (niveau moyen de liking) ;  
-- \( \beta_1 \), \( \beta_2 \) : effets directionnels linéaires ;  
-- \( \beta_3 \), \( \beta_4 \) : effets de courbure (prise en compte d'un seuil de saturation) ;  
-- \( \varepsilon \) : erreur aléatoire.
+- \( Y \) : note de liking prédite pour une position donnée dans l’espace sensoriel (x, y) ;  <br>
+- \( x \), \( y \) : coordonnées du point dans le plan ACP (Dim1, Dim2) ;  <br>
+- \( \beta_0 \) : constante (niveau moyen de liking) ;  <br>
+- \( \beta_1 \), \( \beta_2 \) : effets directionnels linéaires ;  <br>
+- \( \beta_3 \), \( \beta_4 \) : effets de courbure (prise en compte d'un seuil de saturation) ;  <br>
+- \( \varepsilon \) : erreur aléatoire.<br>
 
 
 
