@@ -619,7 +619,16 @@ res.penalty.one <- AovSum(Liking ~ Nc.ne + Nc.tm + Io.ne + Io.tm + Su.ne + Su.tm
                           data = orange.dummy.2JPR)
 res.penalty.one$Ttest
 ```
-# INTERPRETATION
+### INTERPRETATION
+Ce tableau présente, pour chaque défaut sensoriel potentiel, son impact estimé sur la note d’appréciation (« liking »). La colonne p-value indique si cet effet est statistiquement significatif, tandis que la ligne Estimate (coefficient) reflète l’intensité de la baisse de la note en présence du défaut.
+Les trois défauts ayant le plus d’impact négatif sur la note de liking sont :
+Pas assez sucré : baisse moyenne de -1,95 points
+Trop amer : baisse moyenne de -1,91 points
+Trop sucré : baisse moyenne de -1,35 points
+
+
+Ces résultats mettent en évidence que l’équilibre en sucre est un critère central dans l’appréciation d’un jus d’orange : qu’il soit trop sucré ou pas assez, un déséquilibre entraîne une baisse significative de la note de liking. De plus, une amertume trop marquée constitue également un facteur fortement pénalisant pour l’évaluation globale du produit.
+
 
 ### CONCLUSION
 
