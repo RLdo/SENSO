@@ -796,7 +796,14 @@ Voici la cartographie des préférences pour notre exemple avec les cocktails:
 res.carto <- carto(res.acp$ind$coord[,1:2], hedo.cocktail)
 ```
 
-# INTERPRETATION
+### INTERPRETATION
+Sur la carte obtenue, deux zones distinctes apparaissent clairement :
+À droite, une zone en bleu, correspondant à des niveaux de liking faibles (inférieurs à 20 %) 
+À gauche, une zone en rouge, où les pourcentages de liking sont élevés (jusqu’à 90 %).
+
+Les cocktails 15 et 13 se situent dans la zone bleue. On peut donc conclure que ces produits sont globalement peu appréciés par les consommateurs. Grâce à l’ACP utilisé pour créer cette carte, il est possible de caractériser ces cocktails. Ces cocktails sont caractérisés par une forte amertume, une acidité marquée, et des odeurs d’agrumes (citron, orange).
+
+À l’inverse, le cocktail 3 est situé dans la zone rouge, avec un taux de liking de 90 %, ce qui indique qu’il est largement préféré. D’après l’ACP, il est perçu comme sucré, épais, avec une intensité olfactive élevée, notamment marquée par des arômes de banane. Cela suggère que les consommateurs privilégient des profils sensoriels, sucrés et fruités.
 
 
 
