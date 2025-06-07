@@ -826,5 +826,12 @@ Et si le VRAI produit idéal se trouvait à l'extérieur de cet espace?
 
 
 # Conclusion générale
+La méthode QDA est utilisée avec un panel entraîné pour décrire le profil sensoriel de plusieurs produits. Grâce à l’analyse de la variance il est possible de savoir quels sont les descripteurs sur lequel le produit a un effet. Il est alors possible de caractériser ses différents produits.
+Grâce à l’ACP il est possible de représenter l’espace produit et de tracer des ellipses de confiance. En plus d’affiner la caractérisation des produits, ceci permet de s’assurer que les produits sont significativement différents les un des autres et de voir quels sont les descripteurs les plus discriminants, ceux pour lesquels les produits ont des notes très différentes.  Elle permet également de voir les corrélations entre les descripteurs.
+
+La méthode JAR est utilisée avec un panel de consommateurs. Elle permet de comprendre les drivers de liking et les drivers de disliking. En ajoutant une touche hédonique dans le profil (Trop, JAR, Pas assez), il est possible de faire une analyse des pénalité et de comprendre quels sont les défauts qui impact le plus l’appréciation du produit. Cette méthode est très pratique car elle donne directement les points sur lesquels se concentrer lors de la formulation du produit.
+
+Le preference mapping est utilisé pour représenter dans un espace produit l’appréciation des produits. Celà commence par la création d’un espace produit avec la méthode de la QDA. Il faut donc un panel entraîné. 
+Par la suite, un panel naïf évalue les produits, ce qui permet d’estimer l’appréciation sur l’ensemble de l’espace sensoriel. Bien que cette méthode soit coûteuse (panel expert + panel consommateur) et exige de nombreux produits testés, elle permet de prédire les notes de liking sur une grille fine. En fixant un seuil (ex. 6/10), on identifie les zones où un fort pourcentage de consommateurs apprécie le produit (zones rouges) ou le rejette (zones bleues), offrant ainsi une cartographie claire des préférences.
 
 
