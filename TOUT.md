@@ -730,7 +730,15 @@ La proportion de variance expliquée par chaque dimension s’appelle l’inerti
 res.acp <- PCA(senso.cocktail)
 ```
 
-# Interprétation
+### Interprétation
+La première dimension explique 53,25 % de la variabilité totale et la deuxième 24,13 %. Ensemble, ces deux axes capturent donc une part importante de l'information.
+
+Le graphique des variables permet d’interpréter les positions des cocktails sur le plan factoriel (graphique des individus). Plus un cocktail est situé du côté d’un descripteur, plus il a obtenu une valeur élevée pour cet attribut.
+
+Sur la dimension 1, plus un cocktail est situé à droite, plus il est perçu comme fort, acide, amer, avec des odeurs d’agrumes (citron et orange). À l’inverse, plus il est situé à gauche, plus il est perçu comme sucré, épais, avec une odeur de banane.
+
+Maintenant que les axes ont été interprétés, on peut analyser la distribution des cocktails sur le graphique des individus. Les cocktails situés à gauche s’opposent sensoriellement à ceux situés à droite. Par exemple, le cocktail 4, positionné à gauche, est jugé sucré, épais, pulpeux et présente une forte intensité olfactive. En revanche, le cocktail 15, à l’opposé sur l’axe 1, est perçu comme plus fort et plus acide.
+
 
 ## Prédire du liking 
 
