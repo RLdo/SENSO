@@ -535,10 +535,7 @@ kable(taborange, digits = 2, align = "c", caption = "6 premières lignes de oran
   kable_styling(full_width = FALSE,
                 bootstrap_options = c("striped", "hover"),
                 position = "center",
-                font_size = 14) %>%
-  row_spec(0, bold = TRUE, background = "#ff7f00") %>%
-  row_spec(1:nrow(taborange), background = "#FFF0F5") %>%
-  column_spec(2, bold = TRUE, color = "#df6d14")
+                font_size = 14)
 ```
 
 ## Modèle statistique associé
@@ -570,8 +567,7 @@ orange.dummy |>
       booktabs = TRUE) |>
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 full_width = FALSE, 
-                position = "center") |>
-  row_spec(0, background = "#FFA500", color = "white", bold = TRUE)
+                position = "center") 
 ```
 
 Le modèle s’écrit sous la forme :
@@ -671,9 +667,7 @@ kable(tabc2 , digits = 2, align = "c", caption = "6 premières lignes du jeu de 
   kable_styling(full_width = F, 
                 bootstrap_options = c("striped", "hover"),
                 position = "center",
-                font_size = 14) %>%
-  row_spec(0, bold = T, background = "#3eecac") %>%
-  row_spec(1:nrow(tabc2), background="#cca3ff")
+                font_size = 14) 
 ```
 
 hedo.cocktail (16 x 100) chaque cocktail a été évalué sur une échelle structurée de 0 à 10 par 100 consommateurs, en fonction de leur déplaisir (0) ou plaisir (10).
@@ -683,10 +677,7 @@ kable(tabc3 , digits = 2, align = "c", caption = "6 premières lignes du jeu de 
   kable_styling(full_width = F, 
                 bootstrap_options = c("striped", "hover"),
                 position = "center",
-                font_size = 14) %>%
-  row_spec(0, bold = T, background = "#ff7f00") %>%
-  row_spec(1:nrow(tabc3), background="#FFF0F5")%>%
-  column_spec(2, bold = T, color="#df6d14")
+                font_size = 14) 
 ```
 
 ## Construction de l’espace sensoriel
