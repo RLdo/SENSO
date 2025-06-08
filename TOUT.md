@@ -1,6 +1,6 @@
 ---
 title: "Notes de cours - Sensométrie - 2025"
-author: "Pauline CAMARD, Erell DOYEN, Riwal Le Moan Delalande"
+author: "Pauline CAMARD, Erell DOYEN, Riwal LE MOAN DELALANDE"
 output:
   html_document:
     toc: true
@@ -141,7 +141,7 @@ Variétés de fraises?
 On compte plus de 600 variétés de fraises, mais perçoit-on réellement une différence d'une variété à l'autre ?
 <br>
 
-Quand un producteur affirme que la variété qu’il a sélectionné avec soin et cultivé avec amour est la plus sucrée, est-ce vrai ? Ou est-ce seulement une astuce marketing ?
+Quand un producteur affirme que la variété qu’il a sélectionnée avec soin et cultivée avec amour est la plus sucrée, est-ce vrai ? Ou est-ce seulement une stratégie marketing ?
 <br> Le goût ou la texture de toutes les variétés de fraises sont-ils perçus de la même manière ?
 <br> Y’a t-il des fraises significativement plus rouges que d'autres ?
 <br>
@@ -157,7 +157,7 @@ Une fraise par variété et par session a été dégustée.
 Les descripteurs sensoriels étaient les suivants : Taille, Couleur, Odeur, Ferme, Juteux, Fondant, Sucrée, Acide, Arôme et Fraise des bois
 
 La réponse était obligatoire.
-Les notes pouvaient prendre des valeurs de 0 (très faiblement perçu) à 10 (énormément perçu).
+Les notes pouvaient prendre des valeurs de 0 (très faiblement perçue) à 10 (énormément perçue).
 
 ### Jeu de données
 
