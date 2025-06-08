@@ -1,6 +1,6 @@
 ---
 title: "Notes de cours - Sensométrie - 2025"
-author: "Pauline CAMARD, Erell DOYEN, Riwal Le Moan Delalande"
+author: "Pauline CAMARD, Erell DOYEN, Riwal LE MOAN DELALANDE"
 output:
   html_document:
     toc: true
