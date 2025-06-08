@@ -1,6 +1,6 @@
 ---
 title: "Notes de cours - Sensométrie - 2025"
-author: "Pauline CAMARD, Erell DOYEN, Riwal LE MOAN DELALANDE"
+author: "Pauline CAMARD, Erell DOYEN, Riwal Le Moan Delalande"
 output:
   html_document:
     toc: true
@@ -79,12 +79,6 @@ h5 > .header-section-number {
   display: none;
 }
 
-footer {
-  background: linear-gradient(to right, #E78B90, #FFF1F2 50%, #5e9732);
-  color: #5E4443; /* texte brun lisible sur fond clair */
-  padding: 2em;
-  text-align: center;
-}
 
 .box {
   background-color: #ffc0db; 
@@ -95,39 +89,38 @@ footer {
   box-shadow: 0 0 10px #ffc0cb;
 }
 
-
-
-
-#TOC {
-  font-family: "Space Mono", monospace;
-  color: #aaaaaa;
-  background-color: #ffffffcc;
-  border: 1px solid #5e9732;
-  padding: 1em;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #dcdcdc;
-}
-
 #TOC a {
-  color: #aaaaaa
+  color: #CB2C30; /* rouge fraise */
   text-decoration: none;
+  font-weight: bold;
 }
 
 #TOC a:hover {
   text-decoration: underline;
+  color: #5e9732; /* vert feuille fraise */
+}
+
+#TOC .tocify-header {
   color: #CB2C30;
+  font-weight: 700;
+  margin-top: 1em;      /* espace AVANT le titre */
+  margin-bottom: 0.2em; /* petit espace APRÈS */
 }
 
-@keyframes glitter {
-  0% { box-shadow: 0 0 10px #ff99cc; }
-  100% { box-shadow: 0 0 20px #ff66cc; }
+#TOC .tocify-subheader {
+  color: #E78B90;
+  font-weight: 500;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  margin-left: 1.2em;
 }
-
 
 </style>
 
 
 ```
+
+
 # Données QDA (Quantitative Descriptive Analysis)
 
 ## Contexte
